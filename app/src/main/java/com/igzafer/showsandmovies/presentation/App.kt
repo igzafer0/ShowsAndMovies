@@ -13,7 +13,7 @@ class App : Application(), Injector {
         super.onCreate()
         appComponent = DaggerAppComponent.builder().appModule(AppModule(applicationContext))
             .netModule(NetModule(BuildConfig.BASE_URL))
-            .remoteDataModule(RemoteDataModule(BuildConfig.API_KEY)).build()
+            .remoteDataModule(RemoteDataModule(BuildConfig.API_KEY, BuildConfig.LANGUAGE)).build()
     }
 
     override fun createMovieSubComponent(): MovieSubComponent {

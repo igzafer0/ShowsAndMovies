@@ -8,10 +8,10 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class RemoteDataModule(private val apiKey: String) {
+class RemoteDataModule(private val apiKey: String, private val lang: String) {
     @Singleton
     @Provides
     fun provideMovieRemoteDataSource(tmdbService: TMDBService): MovieRemoteDatasource {
-        return MovieRemoteDatasourceImpl(tmdbService, apiKey)
+        return MovieRemoteDatasourceImpl(tmdbService, apiKey, lang)
     }
 }
